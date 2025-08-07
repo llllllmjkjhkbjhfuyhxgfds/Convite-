@@ -1,0 +1,77 @@
+html, body {
+  margin: 0; padding: 0; height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('convite.png') no-repeat center center/cover;
+}
+
+.convite-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.convite-box {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 400px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  animation: fadeIn 1s ease forwards;
+}
+
+.convite-box h1 {
+  margin-bottom: 20px;
+  color: #ff0055;
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+/* Faz o texto aparecer com fade-in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* Título com brilho pulsante */
+@keyframes pulseGlow {
+  0%, 100% {
+    text-shadow: 0 0 10px #ff0055, 0 0 20px #ff0055;
+  }
+  50% {
+    text-shadow: 0 0 25px #ff8a8a, 0 0 40px #ff8a8a;
+  }
+}
+
+.convite-box p {
+  margin: 10px 0;
+  font-size: 18px;
+  opacity: 0;
+  animation: itemFadeIn 0.8s forwards;
+}
+
+/* Delay para cada parágrafo para aparecer em sequência */
+.convite-box p:nth-child(2) { animation-delay: 0.4s; }
+.convite-box p:nth-child(3) { animation-delay: 0.8s; }
+.convite-box p:nth-child(4) { animation-delay: 1.2s; }
+.convite-box p:nth-child(5) { animation-delay: 1.6s; }
+
+.convite-box a {
+  color: #0077cc;
+  text-decoration: underline;
+  opacity: 0;
+  animation: itemFadeIn 0.8s forwards;
+  animation-delay: 2s;
+}
+
+/* Fade in com leve movimento para os itens */
+@keyframes itemFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

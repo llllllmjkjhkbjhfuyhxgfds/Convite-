@@ -1,0 +1,89 @@
+html, body {
+  margin: 0; padding: 0; height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.intro-container {
+  background-image: url('intro.png'); /* sua imagem aqui */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.intro-container::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  animation: pulseOverlay 4s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes pulseOverlay {
+  0% { background: rgba(0,0,0,0.5); }
+  100% { background: rgba(0,0,0,0.65); }
+}
+
+.overlay {
+  position: relative;
+  z-index: 1;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 30px rgba(0,0,0,0.7);
+  animation: fadeSlideDown 1.2s ease forwards;
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.overlay h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  animation: fadeSlideDown 1.2s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.overlay button {
+  margin-top: 20px;
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(45deg, #ff0055, #ff7700);
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: pulseButton 2s infinite ease-in-out;
+  animation-delay: 0.7s;
+}
+
+.overlay button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px white;
+}
+
+/* Animação de fade com deslizamento para baixo */
+@keyframes fadeSlideDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animação pulsante para o botão */
+@keyframes pulseButton {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 transparent;
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ff0055;
+  }
+}
